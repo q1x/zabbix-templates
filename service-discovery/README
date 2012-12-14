@@ -5,8 +5,11 @@ For example, if the servdisc.ps1 is residing in C:\, the userparameter would loo
 
 UserParameter=service.discovery,powershell -File c:\servdisc.ps1
 
+Please note, that the Powershell script is unsigned. Therefor it must be allowed to run unsigned PS scripts on the system.
+See http://www.windowsecurity.com/articles/PowerShell-Security.html for more info on this.
+
 Also note that on my test system, it took a while before powershell would return results.
-This caused timeouts in the agent which resulted in not supported errors for the discovery item.
+This caused timeouts in the agent which resulted in "not supported" errors for the discovery item.
 To solve this, I upped the timout in the agent to 10 seconds:
 
 Timeout=10
