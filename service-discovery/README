@@ -1,0 +1,25 @@
+LLD template for Microsoft Windows Services
+
+For this template to work, a userparameter must be added to the agent configuration.
+For example, if the servdisc.ps1 is residing in C:\, the userparameter would look like this:
+
+UserParameter=service.discovery,powershell -File c:\servdisc.ps1
+
+Also note that on my test system, it took a while before powershell would return results.
+This caused timeouts in the agent which resulted in not supported errors for the discovery item.
+To solve this, I upped the timout in the agent to 10 seconds:
+
+Timeout=10
+
+By default the actual template will do a discovery of all the services that should automatically be started and that are currently in the running state.
+It does so by filtering the {#SERVICESTATE} macro for the string "Running".
+
+The following macros are available for filtering if desired:
+
+{#SERVICENAME}		The name of the Windows service
+{#SERVICEDISPLAY}	The displayname of the Windows service
+{#SERVICESTATE}		The state of the Windows service
+{#SERVICEDESC}		The Windows service description
+
+All of these can be used to filter by means of regex matching.
+
