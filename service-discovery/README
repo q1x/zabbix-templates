@@ -26,3 +26,8 @@ The following macros are available for filtering if desired:
 
 All of these can be used to filter by means of regex matching.
 
+---
+2013-04-10	Mate Juroš was kind enough to provide a .vbs version of the powershell script. I've added it to the repo for completeness. The code is not tested by me, please use it with precaution! TO use the script please create the following UserParameter in the Zabbix Agent:
+
+UserParameter=service.discovery,cscript /B c:\servdisc.vbs
+
