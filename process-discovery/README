@@ -1,7 +1,13 @@
 LLD template for Linux Process Discovery
 
+<disclaimer>
 !!! Highly experimental, use at your own risk !!!
 This template could potentialy overload your server with a multitude of processes, consider yourself warned!
+The problem is two-fold, there is a fairly big chance that Zabbix will create a LOT of items from this LLD. Whenever possible use a regex to filter only certain processes or users to limit the amount of created items. The other problem is the high refresh rate of the discovery and the items (30s by default in the current template). This is needed because we need a high polling resolution in order for the data to be usefull. Combine this fact with the large number of items and you can see the potential danger hanging over this experiment.
+</disclaimer>
+
+
+Now, on to the good stuff :-)
 
 For this template to work, a two userparameters must be added to the agent configuration.
 Make sure that you replace the paths to the executables with valid values for your system.
