@@ -1,0 +1,24 @@
+LLD template for Linux Process Discovery
+
+!!! Highly experimental, use at your own risk !!!
+This template could potentialy overload your server with a multitude of processes, consider yourself warned!
+
+For this template to work, a two userparameters must be added to the agent configuration.
+Make sure that you replace the paths to the executables with valid values for your system.
+
+
+#Returns a list of monitorable processes in Zabbix LLD JSON format
+UserParameter=ps.discovery,echo "{\n \"data\":[" ; /bin/ps --no-headers caux | /usr/bin/awk '{ print " { \"{#PSUSER}\":\"" $1 "\", \"{#PSNAME}\":\"" $11 "\" },"}' | /usr/bin/sort | /usr/bin/uniq | /bin/sed -e 's/\//\\\//g' -e '$s/.$//' ; echo " ]\n}"
+
+# Calculates CPU usage over multiple process threads
+UserParameter=proc.cpu[*],TOTAL=0; for PROC in `/bin/ps u -C $1 | /bin/grep -e '^$2' | /usr/bin/awk '{ print $$3 }'`; do TOTAL=`echo "$TOTAL $PROC" | /usr/bin/awk '{print $$1 + $$2}'` ; done; echo $TOTAL
+
+
+The following macros are available for filtering if desired:
+
+{#PSNAME}		The name of the found process
+{#PSUSER}		The user account running the process
+
+Both of these can be used to filter by means of regex matching.
+
+
