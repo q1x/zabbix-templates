@@ -1,0 +1,10 @@
+*** Before importing the template, this value map needs to be defined: ***
+
+Name: "APC Port Status"
+
+1 -> On
+2 -> Off
+3 -> Rebooting
+4 -> Error
+
+
