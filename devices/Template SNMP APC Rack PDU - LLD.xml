@@ -704,7 +704,7 @@
             <expression>{Template SNMP APC Rack PDU - LLD:powerUsage.max(300)}={Template SNMP APC Rack PDU - LLD:thresholdLow.last(0)}</expression>
             <name>Power usage on {HOSTNAME} is too low</name>
             <url>http://{HOST.CONN}/</url>
-            <status>1</status>
+            <status>0</status>
             <priority>3</priority>
             <description>The power usage has reached the Low threshold.</description>
             <type>0</type>
