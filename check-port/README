@@ -1,0 +1,10 @@
+This template and script (which uses NetCat) will perform a check to see if a TCP port is responding on a monitored host.
+You could easily use the build in net.tcp.service item for this, but I ran into the problem that I needed to be able and specify the source IP from a Zabbix proxy with secondary IP addresses.
+
+The {$SOURCE} macro should be set to the appropriate source IP address of the Zabbix server or proxy.
+To specify the port to be checked, adjust the {$PORT} macro accordingly on the template or host level.
+If more than 1 port check or source is needed for a host, you can of course hard code items with the proper port and address combination.
+
+The template is setup as an external check in Zabbix (place the script in the appropriate directory)
+but it could easily be adjusted to a UserParameter for the Zabbix Agent if needed.
+
