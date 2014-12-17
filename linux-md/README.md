@@ -1,16 +1,16 @@
 ### Zabbix Template to discover Linux MD devices
 
-This template and userparameters will allow you to use Low Level Discovery (LLD) to discover md devices on your linux system en monitor them.
-To be able to use the template, you will need to add the userparameters to the Zabbix agent. This can be done by copy/pasting them into the zabbix agent config file or placing the userparameter-md.conf file in the configured include directory for the agent.
+This template and userparameters will allow you to use Low Level Discovery (LLD) to discover md devices on your linux system and monitor them.
+To be able to use the template, you will need to add the userparameters to the Zabbix agent. This can be done by copy/pasting them into the zabbix agent config file or placing the `userparameter-md.conf` file in the configured include directory for the agent.
 
-All items use info from /proc/mdstat, no need for mdadm or other utilities. For more info see https://raid.wiki.kernel.org/index.php/Mdstat .
+All items use info from `/proc/mdstat`, no need for mdadm or other utilities. For more info see https://raid.wiki.kernel.org/index.php/Mdstat .
 
 
 ## Provided Items
 
 - `vfs.md.personalities` (character) : Outputs the kernel capabilities with regard to md levels. 
 - `vfs.md.unused` (character) : Outputs the unused md devices
-- `vfs.md.discovery` (LLD) : Returns a LLD of the md* devices with the following macros: {#MDDEVICE} {#MDLEVEL} {#MDSTATE}
+- `vfs.md.discovery` (LLD) : Returns a LLD of the md* devices with the following macros: {#MDDEVICE} {#MDLEVEL} {#MDSTATUS}
 - `vfs.md.status` (character) : Returns th estate of the md device
 - `vfs.md.level` (unsigned) : Returns the raid level of the device
 - `vfs.md.members` (character) : Returns the member devices of the RAID set
