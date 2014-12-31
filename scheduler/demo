@@ -2,13 +2,13 @@
 #
 # Demo script to show the use of the scheduler
 #
-ZBXSENDER=/usr/bin/zabbix_sender
-ZBXSERVER=127.0.0.1
-HOST=$1
-STRING=$2
+ZBXSENDER="/usr/bin/zabbix_sender"
+ZBXSERVER="127.0.0.1"
+HOST="$1"
+STRING="$2"
 
 # This script will take a little while (to simulate a long script run)
 sleep 30
 TSTAMP=$(date +%s)
-$ZBXSENDER -z $ZBXSERVER -s $HOST -k demo.tstamp -o $TSTAMP
-$ZBXSENDER -z $ZBXSERVER -s $HOST -k demo.echo -o $STRING
+"$ZBXSENDER" -z "$ZBXSERVER" -s "$HOST" -k demo.tstamp -o "$TSTAMP"
+"$ZBXSENDER" -z "$ZBXSERVER" -s "$HOST" -k demo.echo -o "$STRING"
