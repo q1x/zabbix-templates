@@ -5,4 +5,4 @@
 # as opposed to using cron.
 
 SCRIPTPATH=/usr/lib/zabbix/externalscripts
-echo "$SCRIPTPATH/$@" | at -M now 2>&1 | grep -v "warning: commands will be executed using /bin/sh"
+echo "$SCRIPTPATH/$@" | at -M now 2>&1 | grep -v "warning: commands will be executed using"
