@@ -7,7 +7,7 @@ ZBXSERVER=127.0.0.1
 HOST=$1
 STRING=$2
 
-# This script will take a little while (to stimulate a long script run)
+# This script will take a little while (to simulate a long script run)
 sleep 30
 TSTAMP=$(date +%s)
 $ZBXSENDER -z $ZBXSERVER -s $HOST -k demo.tstamp -o $TSTAMP
