@@ -1,4 +1,12 @@
 # Zabbix Cisco IP SLA discovery 
+This template uses Zabbix SNMP Low-Level Discovery (LLD) to discover Cisco IP SLA checks that are configured on Cisco router devices.
+IP SLA enables you to monitor performance of networks and servers directly from your edge devices.
+
+Zabbix will discover IP SLA configuration and metrics and poll them so they can be graphed in the Zabbix GUI.
+There are also some triggers included that will allow you to alert on error conditions.
+Please be advised that in order for this to work, Zabbix needs to poll the router more often then that the route polls the monitored service as to not miss an error condition.
+E.g., if the router polls a service every 2 minutes, let Zabbix poll the router every minute for metric items.
+This is because we currently don't use SNMP traps to catch the IP SLA errors.
 
 The template currently supports the following IP SLA types:
 
