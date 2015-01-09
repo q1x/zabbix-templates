@@ -2,8 +2,8 @@
 
 The template currently supports the following IP SLA types:
 
-- DNS
-- HTTP
+- DNS (http://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipsla/configuration/15-mt/sla-15-mt-book/sla_dns.html)
+- HTTP (http://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipsla/configuration/15-mt/sla-15-mt-book/sla_http.html)
 
 Others might follow :-)
 
