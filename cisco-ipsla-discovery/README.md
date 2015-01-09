@@ -1,4 +1,4 @@
-== Zabbix Cisco IP SLA discovery ==
+# Zabbix Cisco IP SLA discovery 
 
 The template currently supports the following IP SLA types:
 
@@ -8,7 +8,7 @@ The template currently supports the following IP SLA types:
 Others might follow :-)
 
 
-=== Needed valuemaps ===
+## Needed valuemaps
 
 Before using the template, please create the following valuemaps or the import will fail:
 
