@@ -3,7 +3,7 @@
 This Zabbix template uses tshark (part of the wireshark project) to analyse network traffic on a capture interface.
 Doing this allows you to perform monitoring of certain types of network traffic passing by on the capture interface and plot these over time. Very, very useful if the interface you are monitoring is a SPAN or monitor port of an import network uplink.
 
-The template and scripts facilitate in counting duplicate acks, retransmissions, lost segments, etc. but could easily be adjusted to trend different types of data. For instance, one could start monitoring the numer of 5xx HTTP status codes passing over the network to spot an increase in webserver backend errors that clients are facing.
+The template and scripts facilitate in counting duplicate acks, retransmissions, lost segments, etc. but could easily be adjusted to trend different types of data. For instance, one could start monitoring the number of 5xx HTTP status codes passing over the network to spot an increase in webserver backend errors that clients could are facing.
 
 ## Usage
 
