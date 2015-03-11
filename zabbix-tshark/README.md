@@ -20,3 +20,5 @@ I recommend to put both of these scripts in a crontab for a user that has suffic
 * * * * * /path/to/zbxanalyze.sh
 ```
 
+Capture files are removed after analysis to save disk space, of course feel free to adjust this if needed :)
+
