@@ -15,7 +15,7 @@ $temp = 1
 # For each object in the list of services, print the output of the JSON message with the object properties that we are interessted in
 foreach ($objItem in $colItems) {
  $exe_dir = $objItem.PathName
- $exe_dir = $exe_dir -replace '"?(.+\\).+exe.*','$1'
+ $exe_dir = $exe_dir -replace '"?(.+\\).+exe.*$','$1'
  $exe_dir = $exe_dir -replace '\\','/'
  $exe_dir = $exe_dir -replace '"','\"'
  
