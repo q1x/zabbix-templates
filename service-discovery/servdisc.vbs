@@ -22,10 +22,10 @@ dim OutputLine
 '# For each object in the list of services, print the output of the JSON message with the object properties that we are interessted in
 
 For Each objService in colListOfServices
-OutputLine = " { ""{#SERVICESTATE}"":""" & objService.State & """ , ""{#SERVICEDISPLAY}"":""" & objService.DisplayName & """ , ""{#SERVICENAME}"":""" & objService.Name & """ , ""{#SERVICEDESC}"":""" & objService.Description & """ },"
-objStdOut.Write OutputLine & vbCRLF
+OutputLine = OutputLine & " { ""{#SERVICESTATE}"":""" & objService.State & """ , ""{#SERVICEDISPLAY}"":""" & objService.DisplayName & """ , ""{#SERVICENAME}"":""" & objService.Name & """ , ""{#SERVICEDESC}"":""" & objService.Description & """ }," & vbCRLF
 Next
-
+OutputLine = Left(OutputLine, Len( OutputLine) - 1)
+objStdOut.Write OutputLine & vbCRLF
 '# Close the JSON message
 objStdOut.Write vbCRLF
 objStdOut.Write " ]" & vbCRLF
