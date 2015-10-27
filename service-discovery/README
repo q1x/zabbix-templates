@@ -1,3 +1,6 @@
+*** Please take note that starting from Zabbix 3.0, Windows Service Discovery is built into the Zabbix Agent. ***
+*** This script and template will no longer be maintained because of this. ***
+
 LLD template for Microsoft Windows Services
 
 For this template to work, a userparameter must be added to the agent configuration.
