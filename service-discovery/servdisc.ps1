@@ -37,8 +37,10 @@ $temp = 1
 foreach ($objItem in $colItems) {
 <<<<<<< HEAD
  $exe_dir = $objItem.PathName
- $exe_dir = $exe_dir -replace '"?(.+\\).+exe.*','$1'
+ $exe_dir = $exe_dir -replace '\s.*$',''
+ $exe_dir = $exe_dir -replace '"?(.+\\).+exe.*$','$1'
  $exe_dir = $exe_dir -replace '\\','/'
+ $exe_dir = $exe_dir -replace '"',''
  
  $desc_val = $objItem.Description
  $desc_val = $desc_val -replace '\"','@'
