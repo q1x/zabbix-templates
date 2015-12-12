@@ -1,0 +1,22 @@
+#!/bin/bash
+#ntptest
+#NTP test scripts for Zabbix monitor. Conditional return
+# of 1=success | 2=unknown server | 3=not a ntp client| 0= for failed response
+
+HOST_QUERY=$1
+QUERY='';
+CMD=`ntpq -pn $HOST_QUERY 2>&1`; 
+
+case $CMD in
+	# time synched
+	['~ m\\*']*) 
+		echo 1 ;;
+	# unknown server
+	['~ m\Name or service not known']*) 
+		echo 2 ;;
+	# not a ntp host
+	['~ m\\***Request timed out']*) 
+		echo 3 ;;
+  	*) 
+		echo 0 ;;
+esac;
