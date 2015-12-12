@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<zabbix_export version="1.0" date="27.10.10" time="04.39">
+	<hosts>
+		<host name="Template_App_NTPD">
+			<ip>0.0.0.0</ip>
+			<port>10050</port>
+			<status>3</status>
+			<groups>
+				<group>99 Templates</group>
+			</groups>
+			<items>
+				<item type="10" key="ntptest[]" value_type="3">
+					<description>NTP query test</description>
+					<delay>600</delay>
+					<history>30</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>DNS/NTP Test</valuemap>
+					<applications>
+						<application>Timeserver</application>
+					</applications>
+				</item>
+				<item type="0" key="proc.num[ntpd]" value_type="3">
+					<description>Number of ntpd processes</description>
+					<delay>300</delay>
+					<history>30</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Timeserver</application>
+					</applications>
+				</item>
+			</items>
+			<triggers>
+				<trigger>
+					<description>Timeserver is down on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:proc.num[ntpd].last(0)}=0</expression>
+					<priority>4</priority>
+					<comments>The timeserver is not running on this server.</comments>
+				</trigger>
+				<trigger>
+					<description>NTP query on {HOSTNAME} failed</description>
+					<expression>{{HOSTNAME}:ntptest[].min(1800)}=0</expression>
+					<priority>4</priority>
+					<comments>The timeserver on this host is not synchronised with another timeserver. It might not respond to queries or return false time data.</comments>
+				</trigger>
+				<trigger>
+					<description>NTP query on {HOSTNAME} failed: unknown host</description>
+					<expression>{{HOSTNAME}:ntptest[].min(1800)}=2</expression>
+					<priority>1</priority>
+					<comments>Name or service not known. This host does not exists or is unreachable.</comments>
+				</trigger>
+				<trigger>
+					<description>NTP query on {HOSTNAME} failed: not a NTP client</description>
+					<expression>{{HOSTNAME}:ntptest[].min(1800)}=3</expression>
+					<priority>1</priority>
+					<comments>This host timed out:  nothing received
+***Request timed out
+
+There is no NTP client software available on {HOSTNAME}</comments>
+				</trigger>
+			</triggers>
+		</host>
+	</hosts>
+</zabbix_export>
