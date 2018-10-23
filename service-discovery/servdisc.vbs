@@ -18,12 +18,27 @@ objStdOut.Write """data"":[" & vbCRLF
 objStdOut.Write vbCRLF
 
 dim OutputLine
+num = 0
+check = 0
+
+For Each objService in colListOfServices
+num = num + 1
+Next
 
 '# For each object in the list of services, print the output of the JSON message with the object properties that we are interessted in
 
 For Each objService in colListOfServices
+check = check + 1
+
+If check = num then
+OutputLine = " { ""{#SERVICESTATE}"":""" & objService.State & """ , ""{#SERVICEDISPLAY}"":""" & objService.DisplayName & """ , ""{#SERVICENAME}"":""" & objService.Name & """ , ""{#SERVICEDESC}"":""" & objService.Description & """ }"
+objStdOut.Write OutputLine & vbCRLF
+
+Else
 OutputLine = " { ""{#SERVICESTATE}"":""" & objService.State & """ , ""{#SERVICEDISPLAY}"":""" & objService.DisplayName & """ , ""{#SERVICENAME}"":""" & objService.Name & """ , ""{#SERVICEDESC}"":""" & objService.Description & """ },"
 objStdOut.Write OutputLine & vbCRLF
+      
+End If
 Next
 
 '# Close the JSON message
@@ -31,3 +46,4 @@ objStdOut.Write vbCRLF
 objStdOut.Write " ]" & vbCRLF
 objStdOut.Write "}" & vbCRLF
 objStdOut.Write vbCRLF
+  
