@@ -9,4 +9,4 @@ That script can then use `zabbix_sender` to report back it's values. This way, w
 
 Provided are the scheduler script, a demo template and a demo script that shows you how to tie it al together.
 
-For more info on why you would want to do this, see http://zabbix.org/wiki/Escaping_timeouts_with_atd
+For more info on why you would want to do this, see https://web.archive.org/web/20181110050205/http://zabbix.org/wiki/Escaping_timeouts_with_atd 
